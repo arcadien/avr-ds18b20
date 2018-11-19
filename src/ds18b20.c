@@ -13,14 +13,13 @@
 
 #include <stddef.h>
 #include <util/delay.h>
-#include <ds18b20/ds18b20.h>
-#include <ds18b20/onewire.h>
+#include <sensors/ds18b20/include/ds18b20/ds18b20.h>
+#include <sensors/ds18b20/include/ds18b20/onewire.h>
 
 //! Calculate CRC of provided data
 uint8_t ds18b20crc8( uint8_t *data, uint8_t length )
 {
 	//Generate 8bit CRC for given data (Maxim/Dallas)
-
 	uint8_t i = 0;
 	uint8_t j = 0;
 	uint8_t mix = 0;
