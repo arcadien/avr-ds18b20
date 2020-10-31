@@ -18,9 +18,9 @@
 #include <inttypes.h>
 #include <string.h>
 #include <stddef.h>
-#include <ds18b20/onewire.h>
-#include <ds18b20/ds18b20.h>
-#include <ds18b20/romsearch.h>
+#include <onewire.h>
+#include <ds18b20.h>
+#include <romsearch.h>
 
 //! Searches for connected sensors
 uint8_t ds18b20search( volatile uint8_t *port, volatile uint8_t *direction, volatile uint8_t *portin, uint8_t mask, uint8_t *romcnt, uint8_t *roms, uint16_t buflen )

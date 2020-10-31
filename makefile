@@ -13,7 +13,7 @@ MODULE_ROMSEARCH = 1
 NO_AUTO_CLI =
 
 CC = avr-gcc
-CFLAGS = -Wall -Wpedantic -DF_CPU=$(F_CPU) -mmcu=$(MCU) -Os -Iinclude
+CFLAGS = -Wall -Wpedantic -DF_CPU=$(F_CPU) -mmcu=$(MCU) -Os -Isrc
 
 LD = avr-ld
 LDFLAGS =
@@ -56,13 +56,13 @@ lib/libds18b20.a: obj/ds18b20.o
 obj/ds18b20.o: force $(MODULES)
 	$(LD) $(LDFLAGS) -r $(MODULES) -o obj/ds18b20.o
 
-obj/onewire.o: src/onewire.c include/ds18b20/onewire.h
+obj/onewire.o: src/onewire.c src/onewire.h
 	$(CC) $(CFLAGS) -c src/onewire.c -o obj/onewire.o
 
-obj/tmp/ds18b20.o: src/ds18b20.c include/ds18b20/ds18b20.h
+obj/tmp/ds18b20.o: src/ds18b20.c src/ds18b20.h
 	$(CC) $(CFLAGS) -c src/ds18b20.c -o obj/tmp/ds18b20.o
 
-obj/tmp/romsearch.o: src/romsearch.c include/ds18b20/romsearch.h
+obj/tmp/romsearch.o: src/romsearch.c src/romsearch.h
 	$(CC) $(CFLAGS) -c src/romsearch.c -o obj/tmp/romsearch.o
 
 force: clean
